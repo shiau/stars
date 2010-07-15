@@ -1,3 +1,4 @@
+require 'digest'
 module ApplicationHelper
   FRIENDLY_TIME_FORMAT = '%H:%M%p on %b %d'
   def friendly_time(time)
@@ -25,7 +26,13 @@ module ApplicationHelper
   DEFAULT_PHOTO_OPTIONS = {:linked => false,
                            :size => :square}
   def photo(user, opts={})
-    fb_profile_pic(user.facebook_uid, DEFAULT_PHOTO_OPTIONS.merge(opts))
+    if user.facebook_uid then
+      fb_profile_pic(user.facebook_uid, DEFAULT_PHOTO_OPTIONS.merge(opts))
+    else
+      hash = Digest::MD5.hexdigest(user.email.strip.downcase)
+      gravatar_url = "http://www.gravatar.com/avatar/" + hash + "?s=48"
+      image_tag( gravatar_url )
+    end
   end
 
   def linked_photo(user, opts={})

@@ -1,3 +1,5 @@
+require 'digest'
+
 class User < ActiveRecord::Base
   acts_as_authentic
 
@@ -18,5 +20,9 @@ class User < ActiveRecord::Base
 
   def others
     User.active.all(:conditions => ["`users`.`id` != ?", self.id])
+  end
+  
+  def valid_password?( p )
+    Digest::MD5.hexdigest(self.password)  == Digest::MD5.hexdigest(p)
   end
 end

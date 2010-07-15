@@ -1,1 +1,22 @@
 <%= authlogic_facebook_login_button %>
+
+<p>
+or sign in without Facebook:
+
+<% form_for @user_session do |f| %>
+  <% f.error_messages %>
+   <p>
+    <%= f.label  :email %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label  :password%>
+    <%= f.password_field :password%>
+  </p>
+  <p>
+    <%= f.submit "Login" %>
+  </p>
+<% end %>
+
+<%= link_to "create a new non-Facebook user", new_user_path %> 
