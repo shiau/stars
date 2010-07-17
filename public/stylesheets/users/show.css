@@ -1,0 +1,35 @@
+div.header {
+  margin: 30px auto;
+  width: 500px;
+  text-align: center;
+  font-size: 2em;
+}
+
+div.hr {
+  color: #666;
+  width: 520px;
+  margin: 40px auto -5px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+div.sender_breakdown {
+  font-size: 0.5em;
+}
+
+div.photo {
+  float: left;
+  text-align: center;
+}
+
+div.photo img {
+  border: 2px solid #CCC;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+
+.star_text {
+  font-weight: bold;
+  color: #991;
+}

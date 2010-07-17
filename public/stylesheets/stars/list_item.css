@@ -1,0 +1,75 @@
+div.badge {
+  margin: 10px auto 15px;
+  background-color: #222;
+  border: 0px solid;
+  height: 100px;
+  padding: 20px;
+  position: relative;
+  width: 500px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+div.highlight {
+  border: 8px solid #991;
+}
+
+div.star {
+  float: left;
+  font-size: 6em;
+  color: #991;
+  width: 50px;
+  height: 80px;
+  text-align: center;
+}
+
+div.star img {
+  color: #999;
+  border: 2px solid;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+
+div.reason_main {
+  position: relative;
+  float: right;
+  text-align: center;
+  width: 450px;
+}
+
+div.reason_body {
+  width: 430px
+  height: 80px
+  float: left;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+div.reason_info {
+  float: right;
+  text-align: center;
+  font-size: .85em;
+  font-style: italic;
+  width: 450px;
+  color: #555;
+}
+
+div.quote {
+  font-family: serif; 
+  text-align: center;
+  font-size: 2em;
+  color: #777;
+  width: 30px;
+}
+
+div.reason_main .right {
+  float: right;
+  text-align: left;
+}
+
+div.reason_main .left {
+  float: left;
+  text-align: right;
+}
+

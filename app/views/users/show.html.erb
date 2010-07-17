@@ -1,0 +1,29 @@
+<% stylesheet 'users/show' %>
+
+<% if @user.stars.any? %>
+  <div class="header">
+    <div class="photo">
+      <%=photo( @user )%>
+    </div>
+    <%=name(@user)%> has
+    <span class="star_text">
+      <%=pluralize( @user.stars.size, 'stars' )%></span>,
+    <%=link_to "send another!", new_star_path( :to => @user.id ) %>
+  </div>
+  <div class="hr">
+    Latest star:
+  </div>
+  <% @user.stars.reverse.each_with_index do |star, i| %>
+    <%= render :partial => 'stars/list_item', 
+      :locals => {
+        :star => star, 
+        :total => @sender_totals.assoc(star.from_id).last,
+        :first => i == 0
+      }
+
+    %>
+
+  <% end %>
+<% else %>
+  <%=name(@user)%> has no stars, <%=link_to "give them a star!", new_star_path( :to => @user.id ) %>
+<% end %>

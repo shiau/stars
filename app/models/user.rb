@@ -1,4 +1,4 @@
-require 'digest'
+require 'digest/sha1'
 
 class User < ActiveRecord::Base
   acts_as_authentic
@@ -21,8 +21,28 @@ class User < ActiveRecord::Base
   def others
     User.active.all(:conditions => ["`users`.`id` != ?", self.id])
   end
-  
+
+=begin
   def valid_password?( p )
-    Digest::MD5.hexdigest(self.password)  == Digest::MD5.hexdigest(p)
+    self.crypted_password  == encrypt( p ) 
   end
+
+  def password=( pw )
+    @password = pw
+  end
+
+  def password
+    @password
+  end
+  
+  def encrypt( s )
+    Digest::SHA1.hexdigest( s.chomp.downcase )
+  end
+
+  before_save :encrypt_password!
+
+  def encrypt_password!
+    self.crypted_password = encrypt( @password ) if @password 
+  end
+=end
 end

@@ -1,0 +1,17 @@
+<% stylesheet 'stars/list_item' %>
+<div class="badge<%=(first)? ' highlight':''%>" >
+    <div class="star">
+      <%=photo(star.from)%> 
+    </div>
+  <div class="reason">
+    <div class="reason_main">
+      <div class="reason_body">
+        "<%=link_to truncate(star.reason, 200), star_path( star )%>"
+      </div>
+    </div>
+    <div class="reason_info" >
+      from <%=link_to name( star.from ), user_path( star.from )%> (<%=pluralize( total, 'star' )%> total),
+      <%=friendly_time( star.created_at )%>
+    </div>
+  </div>
+</div>

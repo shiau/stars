@@ -1,11 +1,11 @@
 <% stylesheet 'users/badge' %>
-<% star = user.most_recent_star unless local_assigns['star'] %>
+<% star = user.most_recent_star unless star %>
 
 <div class="badge">
   <div class="info">
     <div class="user_info clearfix">
       <div class="user_name">
-        <%= name(user) %>
+        <%= link_to  name(user), user_path( user ) %>
       </div>
       <div class="user_photo">
         <%= photo(user) %>
